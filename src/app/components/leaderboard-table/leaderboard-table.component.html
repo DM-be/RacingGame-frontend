@@ -1,26 +1,51 @@
-<h1>Leaderboard</h1>
-<article class="flexContainer">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  <div class="details">
-    <h2>No record selected yet, please select a record in the table on the left to see the details of a player</h2>
-  </div>
-</article>
+<div class="leaderboard">
+  <h1>Leaderboard</h1>
+  <article class="flexContainer">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Trackname</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records" (click)="loadDetailsUser($event,record)">
+          <td>{{record.firstName}} {{record.lastName}}</td>
+          <td>{{record.username}}</td>
+          <td>{{record.trackName}}</td>
+          <td>{{record.time}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="details">
+      <h2 *ngIf="!details">No record selected yet, please select a record in the table on the left to see the details
+        of a player</h2>
+      <div *ngIf="details">
+        <h1>{{user.details.username}}</h1>
+        <span class="detail">Name: {{user.details.firstName}} {{user.details.lastName}}</span><br>
+        <span class="detail">Best time: {{user.records[0].time}}</span><br>
+        <span class="detail center">Best 5 records:</span><br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Trackname</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of user.records" (click)="loadDetailsUser($event,record)">
+              <td>{{record.firstName}} {{record.lastName}}</td>
+              <td>{{record.username}}</td>
+              <td>{{record.trackName}}</td>
+              <td>{{record.time}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </article>
+</div>

@@ -7,6 +7,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LeaderboardTableComponent } from "./components/leaderboard-table/leaderboard-table.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DataServiceService } from "./services/DataService.service";
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +20,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

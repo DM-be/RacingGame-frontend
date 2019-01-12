@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 2%;
 }
 
 .flexContainer>table,
@@ -9,14 +10,27 @@
   width: 45%;
 }
 
-.flexContainer>div {
+.flexContainer>div,
+.flexContainer>table {
   background-color: rgba(255, 255, 255, 0.411);
   border-radius: 5%;
   padding: 2%;
 }
 
-table {
-  width: 100%;
+.flexContainer>table>tbody>tr:hover {
+  background-color: rgba(255, 255, 255, 0.411);
+  cursor: pointer;
+}
+
+.detail {
+  font-size: 2em;
+  margin-top: 10%;
+  font-weight: bold;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
@@ -24,5 +38,5 @@ h1 {
   font-size: 2em;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: black;
+  color: white;
 }
