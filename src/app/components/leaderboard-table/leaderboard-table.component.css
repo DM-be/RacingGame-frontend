@@ -1,3 +1,14 @@
+@font-face {
+  font-family: racingFont;
+  src: url("../../../assets/fonts/BREECBO_.TTF");
+}
+
+.leaderboard>h1 {
+  font-family: racingFont, sans-serif;
+  font-size: 3rem;
+  padding-top: 2%
+}
+
 .flexContainer {
   display: flex;
   flex-wrap: wrap;
@@ -5,19 +16,56 @@
   padding: 2%;
 }
 
-.flexContainer>table,
-.flexContainer>div {
+.flexContainer>div,
+.flexContainer>table {
+  background-color: rgba(109, 107, 107, 0.811);
   width: 45%;
 }
 
-.flexContainer>div,
 .flexContainer>table {
-  background-color: rgba(255, 255, 255, 0.411);
-  border-radius: 5%;
-  padding: 2%;
+  width: 100%;
+  padding: 6%
 }
 
-.flexContainer>table>tbody>tr:hover {
+.flexContainer>table>tr>td {
+  color: white;
+}
+
+.flexContainer>div {
+  opacity: 0;
+  color: white;
+}
+
+.full-width {
+  animation: example 2s forwards;
+}
+
+.detailsFilledIn {
+  animation: showUp 2s 1s forwards;
+}
+
+@keyframes example {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 45%
+  }
+}
+
+@keyframes showUp {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    background-color: rgba(51, 50, 50, 0.83);
+    opacity: 1;
+  }
+}
+
+table>tbody>tr:hover {
   background-color: rgba(255, 255, 255, 0.411);
   cursor: pointer;
 }
@@ -39,4 +87,14 @@ h1 {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: white;
+}
+
+@media(max-width: 800px) {
+  .flexContainer {
+    padding: 0;
+  }
+
+  .flexContainer>div {
+    width: 100%;
+  }
 }

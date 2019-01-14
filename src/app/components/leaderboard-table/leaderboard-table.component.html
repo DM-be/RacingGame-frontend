@@ -1,7 +1,7 @@
 <div class="leaderboard">
   <h1>Leaderboard</h1>
   <article class="flexContainer">
-    <table class="table">
+    <table [className]="!details ? 'table table-striped' : 'table table-striped full-width'">
       <thead>
         <tr>
           <th>Username</th>
@@ -19,10 +19,8 @@
         </tr>
       </tbody>
     </table>
-    <div class="details">
-      <h2 *ngIf="!details">No record selected yet, please select a record in the table on the left to see the details
-        of a player</h2>
-      <div *ngIf="details">
+    <div *ngIf="details" [className]="details ? 'detailsFilledIn details' : 'details'">
+      <div>
         <h1>{{user.details.username}}</h1>
         <span class="detail">Name: {{user.details.firstName}} {{user.details.lastName}}</span><br>
         <span class="detail">Best time: {{user.records[0].time}}</span><br>

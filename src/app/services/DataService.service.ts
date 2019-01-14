@@ -7,6 +7,6 @@ export class DataServiceService {
   constructor(private http: HttpClient) {}
 
   getAllScores() {
-    return this.http.get("http://localhost:50518/api/scores");
+    return this.http.get("http://localhost:5000/api/scores");
   }
 }

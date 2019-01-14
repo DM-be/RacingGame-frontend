@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
   margin: 0;
   padding: 0;
   color: #333;
   overflow-x: hidden;
-  background-color: rgba(0, 0, 0, 0.911);
+  min-height: 100vh;
+  background: url("../src/assets/images/action-american-car-asphalt-981035.jpg");
+  margin: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
