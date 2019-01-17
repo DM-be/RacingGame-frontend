@@ -4,14 +4,14 @@
     <div class="filters">
       <button class="btn btn-danger" (click)="filterTable(true)">Reset</button>
       <div>
-        <h2>Filter on username</h2>
+        <h2>Filter by username</h2>
         <select class="bg-info" (change)="filterTable(false)" id="username" [(ngModel)]="selectedUsername">
           <option value="" selected disabled hidden>Choose here</option>
           <option *ngFor="let username of usernames" [ngValue]="username">{{username}}</option>
         </select>
       </div>
       <div>
-        <h2>Filter on trackname</h2>
+        <h2>Filter by trackname</h2>
         <select class="bg-info" (change)="filterTable(false)" id="trackName" [(ngModel)]="selectedTrack">
           <option value="" selected disabled hidden>Choose here</option>
           <option *ngFor="let track of tracks" [ngValue]="track.realName">{{track.displayName}}</option>

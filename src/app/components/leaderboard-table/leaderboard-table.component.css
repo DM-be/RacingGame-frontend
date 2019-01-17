@@ -9,7 +9,7 @@
 
 .topInfo>h1 {
   font-family: racingFont, sans-serif;
-  font-size: 3rem;
+  font-size: 4rem;
   padding-top: 2%;
   color: white;
 }
@@ -25,6 +25,11 @@
 
 .filters>div>h2 {
   color: white;
+  font-size:2rem;
+}
+
+tbody tr {
+  transition-duration:1s;
 }
 
 .filters>div {

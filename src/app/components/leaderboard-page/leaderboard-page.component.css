@@ -1,3 +1,8 @@
+@font-face {
+  font-family: racingFont;
+  src: url("../../../assets/fonts/BREECBO_.TTF");
+}
+
 .v-header {
   height: 100vh;
   display: flex;
@@ -45,6 +50,8 @@
 .header-content h1 {
   font-size: 50px;
   margin-bottom: 0;
+  font-family: racingFont;
+  margin-bottom:2%;
 }
 
 .header-content p {
@@ -59,6 +66,23 @@
   font-size: 1.2rem;
   padding: 1rem 2rem;
   text-decoration: none;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+}
+
+.animated {
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
 }
 
 @media(max-width: 960px) {
