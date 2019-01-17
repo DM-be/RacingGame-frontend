@@ -1,18 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LeaderboardPageComponent } from "./components/leaderboard-page/leaderboard-page.component";
+import { MaterialModule } from "./material";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { LeaderboardTableComponent } from "./components/leaderboard-table/leaderboard-table.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DataServiceService } from "./services/DataService.service";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LeaderboardTableComponent,
+    LeaderboardPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

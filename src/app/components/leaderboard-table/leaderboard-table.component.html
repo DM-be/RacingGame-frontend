@@ -1,0 +1,71 @@
+<div class="leaderboard">
+  <article class="topInfo">
+    <h1>Leaderboard</h1>
+    <div class="filters">
+      <button class="btn btn-danger" (click)="filterTable(true)">Reset</button>
+      <div>
+        <h2>Filter on username</h2>
+        <select class="bg-info" (change)="filterTable(false)" id="username" [(ngModel)]="selectedUsername">
+          <option value="" selected disabled hidden>Choose here</option>
+          <option *ngFor="let username of usernames" [ngValue]="username">{{username}}</option>
+        </select>
+      </div>
+      <div>
+        <h2>Filter on trackname</h2>
+        <select class="bg-info" (change)="filterTable(false)" id="trackName" [(ngModel)]="selectedTrack">
+          <option value="" selected disabled hidden>Choose here</option>
+          <option *ngFor="let track of tracks" [ngValue]="track.realName">{{track.displayName}}</option>
+        </select>
+      </div>
+    </div>
+  </article>
+
+  <article *ngIf="!details" class="tables">
+    <h1 *ngIf="listEmpty">
+      Sorry there are no records in our database with that criteria
+    </h1>
+    <table *ngIf="!listEmpty" class="table table-hover table-dark">
+      <thead>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Trackname</th>
+        <th>Time</th>
+      </thead>
+      <tbody>
+        <tr (click)="loadDetailsUser($event,record)" *ngFor="let record of records; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{record.firstName}} {{record.lastName}}</td>
+          <td>{{record.username}}</td>
+          <td>{{record.trackName}}</td>
+          <td><strong>{{record.time}}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+  <article class="tables" *ngIf="details">
+    <p (click)="setDetailsOff()" class="arrow glyphicon glyphicon-arrow-left"></p>
+    <h1>{{user.details.username}}</h1>
+    <h2>Realname: {{user.details.firstName}} {{user.details.lastName}}</h2>
+    <h2>Best time: {{user.records[0].time}}</h2>
+    <h2>Best 5 laps: </h2>
+    <table class="table table-hover table-dark">
+      <thead>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Trackname</th>
+        <th>Time</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of user.records; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{record.firstName}} {{record.lastName}}</td>
+          <td>{{record.username}}</td>
+          <td>{{record.trackName}}</td>
+          <td><strong>{{record.time}}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</div>
