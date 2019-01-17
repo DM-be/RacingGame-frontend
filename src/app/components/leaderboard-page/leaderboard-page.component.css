@@ -1,3 +1,8 @@
+@font-face {
+  font-family: racingFont;
+  src: url("../../../assets/fonts/BREECBO_.TTF");
+}
+
 .v-header {
   height: 100vh;
   display: flex;
@@ -45,6 +50,7 @@
 .header-content h1 {
   font-size: 50px;
   margin-bottom: 0;
+  font-family: racingFont;
 }
 
 .header-content p {
