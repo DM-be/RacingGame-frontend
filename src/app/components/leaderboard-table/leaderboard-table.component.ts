@@ -108,8 +108,9 @@ export class LeaderboardTableComponent implements OnInit {
   }
 
   private updateRecords(score: any) {
-    this.records.push(score);
-    this.records.sort(this.sortRecords);
+    this.allrecords.push(score);
+    this.allrecords.sort(this.sortRecords);
+    this.filterTable(false);
   }
 
   private sortRecords(recordA, recordB) {
