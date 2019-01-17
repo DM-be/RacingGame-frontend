@@ -4,9 +4,11 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class DataServiceService {
-  constructor(private http: HttpClient) {}
+  private PORT = 50518;
+  constructor(private http: HttpClient) {
+  }
 
   getAllScores() {
-    return this.http.get("http://localhost:5000/api/scores");
+    return this.http.get(`http://localhost:${this.PORT}/api/scores`);
   }
 }
