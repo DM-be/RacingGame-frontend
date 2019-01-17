@@ -113,6 +113,15 @@ export class LeaderboardTableComponent implements OnInit {
   }
 
   private sortRecords(recordA, recordB) {
-    return recordA.time > recordB.time;
+    const time1 = recordA.time;
+    const time2 = recordB.time;
+
+    if (time1 < time2) {
+      return -1;
+    }
+    if (time1 > time2) {
+      return 1;
+    }
+    return 0;
   }
 }
