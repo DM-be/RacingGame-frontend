@@ -3,98 +3,57 @@
   src: url("../../../assets/fonts/BREECBO_.TTF");
 }
 
-.leaderboard>h1 {
+.topInfo {
+  text-align: center;
+}
+
+.topInfo>h1 {
   font-family: racingFont, sans-serif;
   font-size: 3rem;
-  padding-top: 2%
-}
-
-.flexContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 2%;
-}
-
-.flexContainer>div,
-.flexContainer>table {
-  background-color: rgba(109, 107, 107, 0.811);
-  width: 45%;
-}
-
-.flexContainer>table {
-  width: 100%;
-  padding: 6%
-}
-
-.flexContainer>table>tr>td {
+  padding-top: 2%;
   color: white;
 }
 
-.flexContainer>div {
-  opacity: 0;
-  color: white;
-}
-
-.full-width {
-  animation: example 2s forwards;
-}
-
-.detailsFilledIn {
-  animation: showUp 2s 1s forwards;
-}
-
-@keyframes example {
-  from {
-    width: 100%;
-  }
-
-  to {
-    width: 45%
-  }
-}
-
-@keyframes showUp {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    background-color: rgba(51, 50, 50, 0.83);
-    opacity: 1;
-  }
-}
-
-table>tbody>tr:hover {
-  background-color: rgba(255, 255, 255, 0.411);
-  cursor: pointer;
-}
-
-.detail {
-  font-size: 2em;
-  margin-top: 10%;
-  font-weight: bold;
-}
-
-.center {
+.filters {
+  margin-top: 5vh;
+  background-color: rgba(0, 0, 0, 0.166);
+  max-width: 80vw;
+  padding: 3%;
   margin-left: auto;
   margin-right: auto;
 }
 
-h1 {
-  text-align: center;
-  font-size: 2em;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+.filters>div>h2 {
   color: white;
 }
 
-@media(max-width: 800px) {
-  .flexContainer {
-    padding: 0;
-  }
+.filters>div {
+  display: inline-block;
+  margin-right: 5%;
+}
 
-  .flexContainer>div {
-    width: 100%;
-  }
+.tables {
+  margin-top: 5vh;
+  background-color: rgba(240, 255, 255, 0.625);
+  padding: 3%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tables>h1 {
+  text-align: center;
+}
+
+
+table>tbody>tr:hover {
+  cursor: pointer;
+}
+
+
+.arrow {
+  font-size: 5em;
+}
+
+.arrow:hover {
+  color: red;
 }

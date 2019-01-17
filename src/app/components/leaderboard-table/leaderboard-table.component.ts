@@ -9,8 +9,14 @@ import * as signalR from "@aspnet/signalr";
 })
 export class LeaderboardTableComponent implements OnInit {
   records: any;
+  allrecords: any;
+  listEmpty: boolean;
   details: boolean;
   user: any;
+  tracks: any;
+  usernames: any;
+  selectedTrack: any;
+  selectedUsername: String;
   private _hubConnection;
   private PORT = 50518;
   constructor(private service: DataServiceService) {}
@@ -20,8 +26,57 @@ export class LeaderboardTableComponent implements OnInit {
     this.user = {};
     this.service.getAllScores().subscribe(results => {
       this.records = results;
+      this.allrecords = results;
+      this.listEmpty = false;
+      this.getTracks();
+      this.getUsernames();
+      this.selectedUsername = "";
+      this.selectedTrack = "";
     });
     this.setupHub();
+  }
+
+  setDetailsOff() {
+    this.details = false;
+  }
+
+  filterTable(makeEmpty) {
+    if (makeEmpty) {
+      this.selectedTrack = "";
+      this.selectedUsername = "";
+    }
+    this.records = this.allrecords;
+    if (this.selectedUsername !== "") {
+      this.records = this.records.filter(
+        rec => rec.username == this.selectedUsername
+      );
+    }
+    if (this.selectedTrack !== "") {
+      this.records = this.records.filter(
+        rec => rec.trackName == this.selectedTrack
+      );
+    }
+    if (this.records.length == 0) {
+      this.listEmpty = true;
+    } else {
+      this.listEmpty = false;
+    }
+  }
+
+  searchTrackName(trackName) {}
+
+  getTracks() {
+    this.tracks = [
+      { realName: "RaceScene01", displayName: "Robin Track" },
+      { realName: "RaceScene02", displayName: "Night Track" }
+    ];
+  }
+
+  getUsernames() {
+    var unique = this.records
+      .map(item => item.username)
+      .filter((item, idx, arr) => arr.indexOf(item) == idx);
+    this.usernames = unique;
   }
 
   loadDetailsUser(event, record) {
@@ -29,6 +84,7 @@ export class LeaderboardTableComponent implements OnInit {
       details: record,
       records: this.filterRecordsForUsername(record.username)
     };
+    console.log(this.user);
     this.details = true;
   }
   filterRecordsForUsername(username) {

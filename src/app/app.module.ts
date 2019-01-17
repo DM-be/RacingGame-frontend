@@ -9,7 +9,7 @@ import { LeaderboardTableComponent } from "./components/leaderboard-table/leader
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DataServiceService } from "./services/DataService.service";
 import { HttpClientModule } from "@angular/common/http";
-
+import { FormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,8 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]
